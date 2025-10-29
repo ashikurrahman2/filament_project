@@ -14,13 +14,12 @@ class ServiceForm
         return $schema
             ->components([
                 TextInput::make('service_title'),
-                TextInput::make('service_subtitle'),
                 FileUpload::make('service_image')
                     ->image(),
-                Textarea::make('service_description')
-                    ->label('Service Description')
+                Textarea::make('service_subtitle')
+                    ->label('Service Sub Title')
                     ->rows(5)
-                    ->placeholder('Enter service description here...'),
+                    ->placeholder('Enter sub title here...'),
             ]);
     }
 }

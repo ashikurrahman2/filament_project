@@ -13,6 +13,5 @@ class Service extends Model
         'service_title',
         'service_subtitle',
         'service_image',
-        'service_description',
     ];
 }

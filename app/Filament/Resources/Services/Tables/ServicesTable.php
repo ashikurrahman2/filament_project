@@ -17,19 +17,17 @@ class ServicesTable
             ->columns([
                 TextColumn::make('service_title')
                     ->searchable(),
+                ImageColumn::make('service_image'),
                 TextColumn::make('service_subtitle')
                     ->searchable(),
-                ImageColumn::make('service_image'),
-                TextColumn::make('service_description')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                // TextColumn::make('created_at')
+                //     ->dateTime()
+                //     ->sortable()
+                //     ->toggleable(isToggledHiddenByDefault: true),
+                // TextColumn::make('updated_at')
+                //     ->dateTime()
+                //     ->sortable()
+                //     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
