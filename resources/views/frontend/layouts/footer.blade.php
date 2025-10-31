@@ -6,7 +6,7 @@
 						<div class="col-12">
 							<div class="footer-content text-center py-4">
 								<!-- Copyright -->
-								<div class="copyright">&copy;2025 Relome, All Rights Reserved By <a href="https://themeforest.net/user/theme_land" target="_blank">Themeland</a></div>
+		<div class="copyright">&copy;{{ date('Y') }} Ashikur Rahman, All Rights Reserved By <a href="#" target="_blank">Mahin</a></div>
 							</div>
 						</div>
 					</div>

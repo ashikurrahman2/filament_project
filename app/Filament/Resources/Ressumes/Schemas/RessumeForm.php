@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Ressumes\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class RessumeForm
@@ -12,10 +13,16 @@ class RessumeForm
         return $schema
             ->components([
                 TextInput::make('designation'),
-                TextInput::make('designation_summary'),
+                Textarea::make('designation_summary')
+                    ->label('Designation summary')
+                    ->rows(5)
+                    ->placeholder('Write designation summary'),
                 TextInput::make('pass_year'),
                 TextInput::make('institute_name'),
-                TextInput::make('institute_summary'),
+                 Textarea::make('institute_summary')
+                    ->label('Institute summary')
+                    ->rows(5)
+                    ->placeholder('Write institute summary'),
             ]);
     }
 }

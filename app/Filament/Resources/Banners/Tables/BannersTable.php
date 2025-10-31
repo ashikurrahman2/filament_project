@@ -15,8 +15,11 @@ class BannersTable
     {
         return $table
             ->columns([
+               //    ImageColumn::make('person_image')
+               //      ->searchable(),
                   ImageColumn::make('person_image')
-                    ->searchable(),
+                    ->label('Image')
+                    ->square()->searchable(),
                          TextColumn::make('banner_title')
                     ->searchable(),
                          TextColumn::make('person_name')

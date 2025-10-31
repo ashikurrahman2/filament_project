@@ -33,7 +33,9 @@
                              @foreach ($banners as $hero)
 							<!-- Hero Content -->
 							<div class="hero-content text-center">
-								<img class="hero-thumb" src="{{ asset($hero->person_image) }}" alt="">
+								<img class="hero-thumb"
+								src="{{ asset('storage/' . $hero->person_image) }}"
+								alt="{{ $hero->name ?? 'Banner Image' }}">
 
 								<!-- Heading -->
 								<div class="tl-widget heading mt-3">
@@ -137,7 +139,7 @@
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="service-item image-box">
 								<div class="service-image">
-									<img src="{{ asset($service->service_image) }}" alt="{{ asset($service->service_image) }}">
+									<img src="{{ asset('storage/' . $service->service_image) }}" alt="{{ asset('storage/' . $service->service_image) }}">
 								</div>
 								<div class="card-content">
 									<div class="heading">
@@ -167,6 +169,7 @@
 							</div>
 
 							<div class="row items">
+								@foreach ($ressumes as $ressume)
 								<!-- Icon Box -->
 								<div class="tl-widget icon-box left-aligned item">
 									<div class="icon-wrapper icon-animation">
@@ -175,36 +178,11 @@
 										</span>
 									</div>
 									<div class="content">
-										<h4 class="title">Full-Stack Developer</h4>
-										<p class="description m-0">As a Full-Stack Developer, I worked on a variety of projects that required both front-end and back-end expertise for developing web applications.</p>
+										<h4 class="title">{{ $ressume->designation }}</h4>
+										<p class="description m-0">{{ $ressume->designation_summary }}</p>
 									</div>
 								</div>
-
-								<!-- Icon Box -->
-								<div class="tl-widget icon-box left-aligned item">
-									<div class="icon-wrapper">
-										<span class="icon-group stacked shape-circle">
-											<i class="icon bi-lightning"></i>
-										</span>
-									</div>
-									<div class="content">
-										<h4 class="title">WordPress Developer</h4>
-										<p class="description m-0">I began my career as a Web Developer, where I focused on building and maintaining websites for small businesses. I honed my skills in HTML, CSS, JavaScript, and WordPress.</p>
-									</div>
-								</div>
-
-								<!-- Icon Box -->
-								<div class="tl-widget icon-box left-aligned item">
-									<div class="icon-wrapper">
-										<span class="icon-group stacked shape-circle">
-											<i class="icon bi-bezier2"></i>
-										</span>
-									</div>
-									<div class="content">
-										<h4 class="title">Front-End Developer</h4>
-										<p class="description m-0">I lead a team of designers and developers to deliver high-quality digital products. My role involves overseeing the entire development process.</p>
-									</div>
-								</div>
+								@endforeach
 							</div>
 						</div>
 						
@@ -216,6 +194,7 @@
 							</div>
 
 							<div class="row items">
+							@foreach ($ressumes as $ressume)
 								<!-- Icon Box -->
 								<div class="tl-widget icon-box left-aligned item">
 									<div class="icon-wrapper">
@@ -224,39 +203,12 @@
 										</span>
 									</div>
 									<div class="content">
-										<div class="tl-widget badge"> Sep 2019 – Jun 2023 </div>
-										<h4 class="title mt-3">Design Institute of Technology</h4>
-										<p class="description m-0">Specialized in User Experience and Visual Communication.</p>
+										<div class="tl-widget badge"> {{ $ressume->pass_year }} </div>
+										<h4 class="title mt-3">{{ $ressume->institute_name }}</h4>
+										<p class="description m-0">{{ $ressume->institute_summary }}</p>
 									</div>
 								</div>
-
-								<!-- Icon Box -->
-								<div class="tl-widget icon-box left-aligned item">
-									<div class="icon-wrapper">
-										<span class="icon-group stacked shape-circle">
-											<i class="icon bi-broadcast-pin"></i>
-										</span>
-									</div>
-									<div class="content">
-										<div class="tl-widget badge"> Jan 2017 – Apr 2019 </div>
-										<h4 class="title mt-3">Bachelor in Computer Science</h4>
-										<p class="description m-0">Focused on responsive web design and front-end development.</p>
-									</div>
-								</div>
-
-								<!-- Icon Box -->
-								<div class="tl-widget icon-box left-aligned item">
-									<div class="icon-wrapper">
-										<span class="icon-group stacked shape-circle">
-											<i class="icon bi-patch-check"></i>
-										</span>
-									</div>
-									<div class="content">
-										<div class="tl-widget badge"> Feb 2014 – Aug 2016 </div>
-										<h4 class="title mt-3">Certificate in Digital Marketing</h4>
-										<p class="description m-0">Covered SEO, content strategy, and social media marketing.</p>
-									</div>
-								</div>
+								@endforeach
 							</div>
 						</div>
 					</div>
@@ -466,80 +418,38 @@
 			<!-- ***** Portfolio Area End ***** -->
 
             
-			<!-- ***** Skills Area Start ***** -->
-			<section id="skills" class="skills p-0">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-12 col-md-7">
-							<!-- Intro -->
-							<div class="intro text-center">
-								<div class="tl-widget heading">
-									<h3 class="title m-0">
-										<span class="title-before">My</span> skills
-									</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row gap-4">
-						<!-- Item -->
-						<div class="col item filter-grayscale">
-							<img src="assets/img/content/skill-1.png" alt="">
-							<div class="content mt-3">
-								<span class="percentage counter">99%</span>
-								<div class="title">WordPress</div>
-							</div>
-						</div>
-
-						<!-- Item -->
-						<div class="col item filter-grayscale">
-							<img src="assets/img/content/skill-2.png" alt="">
-							<div class="content mt-3">
-								<span class="percentage counter">95%</span>
-								<div class="title">Figma</div>
-							</div>
-						</div>
-
-						<!-- Item -->
-						<div class="col item filter-grayscale">
-							<img src="assets/img/content/skill-3.png" alt="">
-							<div class="content mt-3">
-								<span class="percentage counter">87%</span>
-								<div class="title">HTML</div>
-							</div>
-						</div>
-
-						<!-- Item -->
-						<div class="col item filter-grayscale">
-							<img src="assets/img/content/skill-4.png" alt="">
-							<div class="content mt-3">
-								<span class="percentage counter">68%</span>
-								<div class="title">Sketch</div>
-							</div>
-						</div>
-
-						<!-- Item -->
-						<div class="col item filter-grayscale">
-							<img src="assets/img/content/skill-5.png" alt="">
-							<div class="content mt-3">
-								<span class="percentage counter">98%</span>
-								<div class="title">Elementor</div>
-							</div>
-						</div>
-
-						<!-- Item -->
-						<div class="col item filter-grayscale">
-							<img src="assets/img/content/skill-6.png" alt="">
-							<div class="content mt-3">
-								<span class="percentage counter">89%</span>
-								<div class="title">JavaScript</div>
+	<!-- ***** Skills Area Start ***** -->
+		<section id="skills" class="skills p-0">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-7">
+						<!-- Intro -->
+						<div class="intro text-center">
+							<div class="tl-widget heading">
+								<h3 class="title m-0">
+									<span class="title-before">My</span> skills
+								</h3>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
-			<!-- ***** Skills Area End ***** -->
+
+				<div class="row justify-content-center gap-4">
+					@foreach ($skills as $skill)
+						<!-- Skill Item -->
+						<div class="col-6 col-md-3 col-lg-2 item text-center filter-grayscale">
+							<img src="{{ asset($skill->skill_image) }}" alt="{{ $skill->skill_name }}" class="img-fluid">
+							<div class="content mt-3">
+								<span class="percentage counter">{{ $skill->skill_parcentage }}%</span>
+								<div class="title">{{ $skill->skill_name }}</div>
+							</div>
+						</div>
+					@endforeach
+				</div>
+			</div>
+		</section>
+<!-- ***** Skills Area End ***** -->
+
 
             	<!-- ***** Approach Area Start ***** -->
 			<section class="approach">
@@ -558,47 +468,42 @@
 					</div>
 
 					<div class="row items justify-content-center align-items-center">
+						@foreach ($skills as $index => $skill)
 						<div class="col-12 col-md-4">
 							<!-- Item -->
-							<div class="item d-flex align-items-end">
-								<div class="item-count">01</div>
+						<div class="item d-flex align-items-start card-angle-animation">
+							   <div class="item-count" data-count="{{ $index + 1 }}">0</div>
 								<div class="tl-widget heading">
 									<h4 class="title m-0">
 										<span class="title-before">Define</span>
 									</h4>
-									<div class="subtitle">Working closely with you to understand your goals, needs, and vision, establishing a clear and focused strategy that lays the foundation for a successful and impactful project.</div>
+									<div class="subtitle">{{ $skill->define_summary }}</div>
 								</div>
 							</div>
 						</div>
-
-						<div class="col-12 col-md-4">
-							<!-- Item -->
-							<div class="item d-flex align-items-start card-angle-animation">
-								<div class="item-count">02</div>
-								<div class="tl-widget heading">
-									<h4 class="title m-0">
-										<span class="title-before">Develop</span>
-									</h4>
-									<div class="subtitle">Transforming your vision into reality through creative design, meticulous planning, and innovative execution, ensuring every detail aligns with your goals and delivers impactful, results-driven solutions tailored to your unique needs.</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-12 col-md-4">
-							<!-- Item -->
-							<div class="item d-flex align-items-end">
-								<div class="item-count">03</div>
-								<div class="tl-widget heading">
-									<h4 class="title m-0">
-										<span class="title-before">Deliver</span>
-									</h4>
-									<div class="subtitle">Providing exceptional results with precision and timeliness, exceeding expectations through reliable execution, thorough attention to detail, and ongoing support to ensure your project's success and long-term impact.</div>
-								</div>
-							</div>
-						</div>
+					@endforeach
 					</div>
 				</div>
 			</section>
+			<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const counts = document.querySelectorAll('.item-count');
+    counts.forEach(countEl => {
+        let target = parseInt(countEl.getAttribute('data-count'));
+        let current = 0;
+        let increment = target > 10 ? Math.ceil(target / 20) : 1;
+        let interval = setInterval(() => {
+            current += increment;
+            if(current >= target) {
+                countEl.textContent = target.toString().padStart(2, '0');
+                clearInterval(interval);
+            } else {
+                countEl.textContent = current.toString().padStart(2, '0');
+            }
+        }, 50);
+    });
+});
+</script>
 			<!-- ***** Approach Area End ***** -->
 
             	<!-- ***** Contact Area Start ***** -->
@@ -615,74 +520,70 @@
 							</div>
 
 							<!-- Icon List -->
-							<ul class="contact-icon-list list-unstyled my-4">
-								<!-- Icon List Item -->
-								<li class="icon-list-item">
-									<a href="tel:+18904735102">
-										<span class="icon-list-icon">
-											<i class="fa-solid fa-phone"></i>
-										</span>
-										<span class="icon-list-text">+1.890.473.5102</span>
-									</a>
-								</li>
+					<ul class="contact-icon-list list-unstyled my-4">
+    @if($settings)
+        <!-- Icon List Item -->
+        <li class="icon-list-item">
+            <a href="tel:{{ $settings->phone_one }}">
+                <span class="icon-list-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </span>
+                <span class="icon-list-text">+88 {{ $settings->phone_one }}</span>
+            </a>
+        </li>
 
-								<!-- Icon List Item -->
-								<li class="icon-list-item">
-									<a href="mailto:hello@relome.com">
-										<span class="icon-list-icon">
-											<i class="fa-solid fa-envelope-open"></i>
-										</span>
-										<span class="icon-list-text">hello@relome.com</span>
-									</a>
-								</li>
+        <!-- Icon List Item -->
+        <li class="icon-list-item">
+            <a href="mailto:{{ $settings->email }}">
+                <span class="icon-list-icon">
+                    <i class="fa-solid fa-envelope-open"></i>
+                </span>
+                <span class="icon-list-text">{{ $settings->email }}</span>
+            </a>
+        </li>
 
-								<!-- Icon List Item -->
-								<li class="icon-list-item">
-									<a href="#">
-										<span class="icon-list-icon">
-											<i class="fa-solid fa-map"></i>
-										</span>
-										<span class="icon-list-text">912 Park Ave, Ketchikan, Alaska 99901, USA</span>
-									</a>
-								</li>
-							</ul>
+        <!-- Icon List Item -->
+        <li class="icon-list-item">
+            <a href="#">
+                <span class="icon-list-icon">
+                    <i class="fa-solid fa-map"></i>
+                </span>
+                <span class="icon-list-text">{{ $settings->address }}</span>
+            </a>
+        </li>
+    @endif
+</ul>
 
 							<!-- Social Icons -->
-							<div class="tl-widget social-icons icon-box justify-content-start gap-0">
-								<a href="#" target="_blank" class="icon-group stacked shape-circle social-icon">
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-behance"></i>
-									</span>
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-behance"></i>
-									</span>
-								</a>
-								<a href="#" target="_blank" class="icon-group stacked shape-circle social-icon">
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-facebook-f"></i>
-									</span>
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-facebook-f"></i>
-									</span>
-								</a>
-								<a href="#" target="_blank" class="icon-group stacked shape-circle social-icon">
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-instagram"></i>
-									</span>
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-instagram"></i>
-									</span>
-								</a>
-								<a href="#" target="_blank" class="icon-group stacked shape-circle social-icon">
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-x-twitter"></i>
-									</span>
-									<span class="icon icon-animated">
-										<i class="fa-brands fa-x-twitter"></i>
-									</span>
-								</a>
-							</div>
-						</div>
+<!-- Social Icons -->
+{{-- <div class="tl-widget social-icons icon-box justify-content-start gap-0">
+
+    @if($settings && $settings->social_link)
+        <a href="{{ $settings->social_link }}" target="_blank" class="icon-group stacked shape-circle social-icon">
+            <span class="icon icon-animated">
+                <i class="fa-brands fa-facebook-f"></i>
+            </span>
+            <span class="icon icon-animated">
+                <i class="fa-brands fa-facebook-f"></i>
+            </span>
+        </a>
+    @endif
+
+    @if($settings && $settings->linked_link)
+        <a href="{{ $settings->linked_link }}" target="_blank" class="icon-group stacked shape-circle social-icon">
+            <span class="icon icon-animated">
+                <i class="fa-brands fa-linkedin"></i>
+            </span>
+            <span class="icon icon-animated">
+                <i class="fa-brands fa-linkedin"></i>
+            </span>
+        </a>
+    @endif
+
+    
+</div> --}}
+
+	</div>
 
 						<div class="col-12 col-md-6">
 							<!-- Contact Form -->

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Filament\Resources\Banners\Schemas;
+
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-
-
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Filament\Schemas\Schema;
 
 class BannerForm
@@ -13,9 +13,22 @@ class BannerForm
     {
         return $schema
             ->components([
-                 FileUpload::make('person_image')
-                    ->image(),
-                  TextInput::make('banner_title'),
+                FileUpload::make('person_image')
+                    ->label('Person Image')
+                    ->image()
+                    ->disk('public')
+                    ->directory('banners')
+                    ->visibility('public')
+                    ->getUploadedFileNameForStorageUsing(
+                        fn (TemporaryUploadedFile $file): string => (string) str($file->getClientOriginalName())
+                            ->prepend(now()->timestamp . '_')
+                    )
+                    ->downloadable()
+                    ->openable()
+                    ->imagePreviewHeight('250')
+                    ->acceptedFileTypes(['image/*'])
+                    ->maxSize(5120), 
+                TextInput::make('banner_title'),
                 TextInput::make('person_name'),
                 TextInput::make('person_designation'),
                 TextInput::make('person_country'),

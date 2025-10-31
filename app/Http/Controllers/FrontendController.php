@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use app\models\Banner;
-use app\models\Service;
+use App\Models\Banner;
+use App\Models\Service;
+use App\Models\Ressume;
+use App\Models\Skills;
+use App\Models\Settings;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -13,6 +16,9 @@ class FrontendController extends Controller
         $banners=Banner::all();
         $foot_banners=Banner::all();
         $services=Service::all();
-        return view('frontend.pages.index', compact('banners','foot_banners','services'));
+        $ressumes=Ressume::all();
+        $skills=Skills::all();
+        $settings = Settings::first();
+        return view('frontend.pages.index', compact('banners','foot_banners','services', 'ressumes','skills','settings'));
     }
 }
